@@ -17,9 +17,13 @@ function generateBoard(size) {
         for (let col = 0; col < size; col++) {
             let gridCellDiv = document.createElement("div");
             gridCellDiv.className = "grid-cell";
-            gridCellDiv.addEventListener("mouseenter", (event) => 
-                event.target.style.backgroundColor = "black"
-            );
+            gridCellDiv.addEventListener("mouseenter", (event) => {
+                let r = Math.floor(Math.random() * 256);
+                let g = Math.floor(Math.random() * 256);
+                let b = Math.floor(Math.random() * 256);
+
+                event.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+        });
 
             gridRowDiv.appendChild(gridCellDiv);
         }
